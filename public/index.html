@@ -6,325 +6,504 @@
     <title>Dental AI Visibility Audit</title>
     <meta
       name="description"
-      content="Get a free AI Visibility Audit showing whether ChatGPT, Perplexity, Gemini and AI-powered search tools can find, understand and recommend your dental clinic."
+      content="Get a free AI Visibility Audit showing whether AI search tools can understand and recommend your dental clinic."
     />
     <meta property="og:title" content="Dental AI Visibility Audit" />
-    <meta
-      property="og:description"
-      content="When patients ask ChatGPT for the best dentist near them, does your clinic show up?"
-    />
+    <meta property="og:description" content="When patients ask ChatGPT for the best dentist near them, does your clinic show up?" />
     <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <style>
       :root {
-        color-scheme: dark;
-        --bg: #071014;
-        --bg-2: #0c1b21;
-        --card: rgba(255, 255, 255, 0.07);
-        --card-strong: rgba(255, 255, 255, 0.11);
-        --text: #f3fbff;
-        --muted: #a9bdc7;
-        --line: rgba(255, 255, 255, 0.14);
-        --cyan: #6ee7f9;
-        --blue: #7aa7ff;
-        --green: #98f5cf;
-        --yellow: #ffe099;
-        --shadow: 0 30px 100px rgba(0, 0, 0, 0.42);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --paper: #fbfaf6;
+        --white: #ffffff;
+        --ink: #171412;
+        --muted: #706b64;
+        --soft: #f1eee8;
+        --soft-2: #e8e2d8;
+        --line: #ded7ca;
+        --coral: #ee735c;
+        --coral-dark: #d95d47;
+        --sage: #7b9a80;
+        --blue: #7988a8;
+        --code: #191715;
+        --code-line: #2b2825;
+        --shadow: 0 22px 70px rgba(55, 40, 25, 0.08);
+        --serif: "Libre Baskerville", Georgia, serif;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       }
 
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        background:
-          radial-gradient(circle at top left, rgba(110, 231, 249, 0.18), transparent 32rem),
-          radial-gradient(circle at top right, rgba(122, 167, 255, 0.22), transparent 30rem),
-          linear-gradient(180deg, var(--bg), #05090c 70%);
-        color: var(--text);
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
         line-height: 1.5;
       }
-
       a { color: inherit; }
-      .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+      .wrap { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
       .nav {
+        height: 78px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 26px 0;
+        justify-content: space-between;
       }
-      .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.03em; }
-      .brand-mark {
-        width: 38px; height: 38px; border-radius: 12px;
-        background: linear-gradient(135deg, var(--cyan), var(--blue));
-        box-shadow: 0 0 40px rgba(110, 231, 249, 0.32);
-        display: grid; place-items: center; color: #031014; font-weight: 950;
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 760; letter-spacing: -0.02em; }
+      .logo {
+        width: 34px; height: 34px; border-radius: 10px;
+        background: var(--ink); color: var(--white);
+        display: grid; place-items: center;
+        font-family: var(--mono); font-size: 12px;
       }
-      .nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 20px; }
-      .nav a:hover { color: var(--text); }
+      .nav-links { display: flex; gap: 24px; align-items: center; color: #5f5a54; font-size: 14px; }
+      .nav-links a { text-decoration: none; }
+      .nav-cta {
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 999px;
+        padding: 10px 16px;
+        color: var(--ink) !important;
+        box-shadow: 0 10px 30px rgba(50, 36, 24, .05);
+      }
 
       .hero {
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 46px;
-        align-items: center;
-        padding: 54px 0 74px;
-      }
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid var(--line);
-        background: rgba(255,255,255,0.05);
-        color: var(--green);
-        border-radius: 999px;
-        padding: 8px 12px;
-        font-weight: 700;
-        font-size: 13px;
-        margin-bottom: 22px;
-      }
-      .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 6px rgba(152,245,207,.12); }
-      h1 {
-        font-size: clamp(42px, 6.3vw, 82px);
-        line-height: 0.94;
-        letter-spacing: -0.075em;
-        margin: 0 0 24px;
-      }
-      .gradient { background: linear-gradient(90deg, #fff, var(--cyan), var(--blue)); -webkit-background-clip: text; color: transparent; }
-      .hero-copy { color: var(--muted); font-size: 19px; max-width: 680px; margin: 0 0 30px; }
-      .actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        border: 0;
-        cursor: pointer;
-        text-decoration: none;
-        padding: 15px 21px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--cyan), var(--blue));
-        color: #041014;
-        font-weight: 900;
-        box-shadow: 0 18px 60px rgba(110, 231, 249, .24);
-      }
-      .button.secondary { background: rgba(255,255,255,.07); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
-      .micro { color: var(--muted); font-size: 13px; }
-
-      .audit-card {
-        border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.055));
-        border-radius: 28px;
-        padding: 24px;
-        box-shadow: var(--shadow);
+        text-align: center;
+        padding: 70px 0 58px;
         position: relative;
-        overflow: hidden;
       }
-      .audit-card:before {
+      .hero:before {
         content: "";
         position: absolute;
-        inset: -1px;
-        background: radial-gradient(circle at top right, rgba(110,231,249,.22), transparent 16rem);
+        inset: 20px 0 auto;
+        height: 440px;
+        background:
+          radial-gradient(circle at 35% 18%, rgba(238,115,92,.16), transparent 22rem),
+          radial-gradient(circle at 65% 28%, rgba(123,154,128,.16), transparent 20rem);
         pointer-events: none;
+        z-index: -1;
       }
-      .score-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; position: relative; }
-      .score {
-        width: 116px; height: 116px; border-radius: 50%;
-        display: grid; place-items: center;
-        background: conic-gradient(var(--yellow) 0 52%, rgba(255,255,255,.12) 52% 100%);
-        position: relative;
+      .wordmark {
+        display: inline-flex; align-items: center; gap: 10px;
+        margin-bottom: 26px;
+        color: var(--ink);
+        font-weight: 700;
       }
-      .score:after { content: ""; position: absolute; inset: 10px; border-radius: 50%; background: #0a171c; }
-      .score strong { position: relative; z-index: 1; font-size: 28px; letter-spacing: -0.06em; }
-      .card-title { margin: 0; font-size: 23px; letter-spacing: -0.04em; }
-      .card-muted { color: var(--muted); margin: 6px 0 0; }
-      .checks { display: grid; gap: 10px; margin-top: 24px; position: relative; }
-      .check { display: flex; justify-content: space-between; gap: 12px; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 12px 13px; color: var(--muted); font-size: 14px; }
-      .check strong { color: var(--text); }
-      .tag { color: var(--green); font-weight: 800; }
-      .tag.warn { color: var(--yellow); }
-
-      section { padding: 74px 0; }
-      .section-head { max-width: 760px; margin-bottom: 32px; }
-      h2 { font-size: clamp(32px, 4.5vw, 56px); line-height: 1; letter-spacing: -0.06em; margin: 0 0 16px; }
-      .section-head p { color: var(--muted); font-size: 18px; margin: 0; }
-      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .feature {
+      .wordmark .logo { width: 42px; height: 42px; border-radius: 13px; }
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(44px, 7.8vw, 108px);
+        line-height: .98;
+        letter-spacing: -0.065em;
+        font-weight: 700;
+        max-width: 1040px;
+        margin: 0 auto 26px;
+        text-wrap: balance;
+      }
+      h1 span { color: var(--coral-dark); }
+      .hero-copy {
+        max-width: 760px;
+        margin: 0 auto 28px;
+        color: var(--muted);
+        font-size: clamp(17px, 1.7vw, 21px);
+      }
+      .hero-search {
+        width: min(760px, 100%);
+        margin: 0 auto 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--white);
         border: 1px solid var(--line);
-        background: var(--card);
-        border-radius: 22px;
-        padding: 22px;
-        min-height: 190px;
+        border-radius: 999px;
+        padding: 8px 8px 8px 22px;
+        box-shadow: var(--shadow);
       }
-      .feature .num { color: var(--cyan); font-weight: 950; font-size: 13px; margin-bottom: 22px; }
-      .feature h3 { margin: 0 0 10px; font-size: 19px; letter-spacing: -0.03em; }
-      .feature p { color: var(--muted); margin: 0; }
+      .hero-search input {
+        flex: 1;
+        border: 0;
+        outline: 0;
+        font: 500 16px var(--sans);
+        color: var(--ink);
+        min-width: 0;
+      }
+      .hero-search input::placeholder { color: #9b958c; }
+      .send {
+        border: 0;
+        background: var(--coral);
+        color: var(--white);
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0 12px 24px rgba(238, 115, 92, .22);
+      }
+      .micro { color: #8a8379; font-size: 13px; margin: 0; }
 
-      .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: start; }
-      .panel { border: 1px solid var(--line); background: var(--card); border-radius: 26px; padding: 26px; }
-      .list { margin: 0; padding: 0; list-style: none; display: grid; gap: 13px; }
-      .list li { display: flex; gap: 11px; color: var(--muted); }
-      .list li:before { content: "✓"; color: var(--green); font-weight: 900; }
-      .quote { font-size: 29px; letter-spacing: -0.045em; line-height: 1.08; margin: 0; }
-      .quote span { color: var(--cyan); }
+      .format-cloud {
+        margin: 54px auto 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        max-width: 820px;
+      }
+      .format-chip, .big-chip {
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.76);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #615b54;
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        box-shadow: 0 12px 35px rgba(55, 40, 25, .045);
+      }
+      .big-chip { font-family: var(--mono); color: var(--ink); font-weight: 600; padding: 12px 18px; }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); }
+      .dot.coral { background: var(--coral); }
+      .dot.blue { background: var(--blue); }
 
-      .form-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: stretch; }
+      section { padding: 82px 0; }
+      .section-title { text-align: center; max-width: 820px; margin: 0 auto 44px; }
+      h2 {
+        font-family: var(--serif);
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.05;
+        letter-spacing: -0.055em;
+        margin: 0 0 14px;
+      }
+      .section-title p, .lede { color: var(--muted); font-size: 18px; margin: 0; }
+      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; }
+      .visual-card {
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 28px;
+        padding: 26px;
+        box-shadow: var(--shadow);
+      }
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+      .step {
+        border: 1px solid var(--line);
+        background: var(--paper);
+        border-radius: 18px;
+        padding: 18px;
+        min-height: 132px;
+      }
+      .step small { font-family: var(--mono); color: var(--coral-dark); font-weight: 600; }
+      .step h3 { margin: 28px 0 0; font-size: 17px; letter-spacing: -0.025em; }
+      .files {
+        background: #f7f4ee;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 18px;
+      }
+      .file-row {
+        display: flex; justify-content: space-between; gap: 12px;
+        border-bottom: 1px solid #e6ded0;
+        padding: 12px 0;
+        font-family: var(--mono);
+        font-size: 14px;
+      }
+      .file-row:last-child { border-bottom: 0; }
+      .file-row span:first-child { color: #8c8377; }
+      .file-row span:last-child { color: var(--ink); font-weight: 600; }
+
+      .content-card h3 { font-size: 14px; text-transform: uppercase; letter-spacing: .11em; color: var(--coral-dark); margin: 0 0 14px; }
+      .content-card p { color: var(--muted); font-size: 18px; margin: 0 0 22px; }
+      .link-arrow { color: var(--ink); text-decoration: none; font-weight: 700; }
+
+      .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .mini-card {
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 18px 48px rgba(55,40,25,.045);
+        min-height: 210px;
+      }
+      .mini-card .icon {
+        width: 42px; height: 42px; border-radius: 14px;
+        background: var(--soft);
+        display: grid; place-items: center;
+        font-family: var(--mono);
+        margin-bottom: 32px;
+      }
+      .mini-card h3 { margin: 0 0 8px; font-size: 19px; letter-spacing: -0.025em; }
+      .mini-card p { color: var(--muted); margin: 0; }
+
+      .stats-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; }
+      .stat-big {
+        border: 1px solid var(--line);
+        background: var(--paper);
+        border-radius: 22px;
+        padding: 24px;
+      }
+      .stat-big strong { display:block; font-family: var(--serif); font-size: 58px; line-height: 1; letter-spacing: -0.06em; }
+      .bot-list { display:grid; gap: 10px; }
+      .bot-row {
+        display:flex; justify-content:space-between; align-items:center;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 14px;
+      }
+      .bot-row span { color: var(--muted); font-family: var(--mono); font-size: 13px; }
+      .bot-row strong { font-size: 14px; }
+
+      .code-window {
+        overflow: hidden;
+        background: var(--code);
+        color: #f3eee8;
+        border-radius: 26px;
+        box-shadow: 0 30px 90px rgba(35,25,18,.18);
+      }
+      .code-top {
+        display: flex; align-items: center; gap: 7px;
+        padding: 15px 18px;
+        border-bottom: 1px solid var(--code-line);
+        color: #918981;
+        font-family: var(--mono); font-size: 12px;
+      }
+      .light { width: 10px; height: 10px; border-radius: 50%; background: #ff7061; }
+      .light.y { background: #f0bd55; }
+      .light.g { background: #75c27b; margin-right: 10px; }
+      pre { margin: 0; padding: 22px; overflow: auto; font: 13px/1.65 var(--mono); }
+      .token { color: #f39b7f; }
+      .attr { color: #a8c7ff; }
+      .str { color: #b5dda6; }
+
+      .form-section { padding-bottom: 100px; }
+      .form-shell {
+        display: grid;
+        grid-template-columns: .88fr 1.12fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+      .form-panel {
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 30px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+      }
       form { display: grid; gap: 14px; }
-      label { display: grid; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 750; }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      label { display: grid; gap: 7px; color: #625b53; font-weight: 700; font-size: 13px; }
       input, select {
         width: 100%;
-        border: 1px solid rgba(255,255,255,.16);
-        background: rgba(2, 10, 13, .68);
-        color: var(--text);
-        border-radius: 13px;
+        border: 1px solid var(--line);
+        background: #fbfaf6;
+        color: var(--ink);
+        border-radius: 14px;
         padding: 14px 13px;
-        font: inherit;
+        font: 500 15px var(--sans);
         outline: none;
       }
-      input:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 4px rgba(110,231,249,.11); }
-      .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-      .note { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
-      footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: 14px; }
+      input:focus, select:focus, .hero-search:focus-within { border-color: var(--coral); box-shadow: 0 0 0 4px rgba(238,115,92,.12); }
+      a:focus-visible, button:focus-visible { outline: 3px solid rgba(238,115,92,.45); outline-offset: 4px; }
+      .button {
+        border: 0;
+        background: var(--coral);
+        color: var(--white);
+        border-radius: 999px;
+        padding: 15px 20px;
+        font-weight: 800;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 0 14px 30px rgba(238,115,92,.22);
+      }
+      .button:disabled { opacity: .7; cursor: default; }
+      .note { color: var(--muted); font-size: 13px; margin: 0; }
+      footer { border-top: 1px solid var(--line); padding: 38px 0 46px; color: var(--muted); font-size: 14px; }
+      .footer-inner { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+      .footer-inner a { color: inherit; text-decoration: none; }
 
       @media (max-width: 900px) {
-        .hero, .split, .form-wrap { grid-template-columns: 1fr; }
-        .grid { grid-template-columns: 1fr 1fr; }
-        .nav-links { display: none; }
+        .nav-links a:not(.nav-cta) { display:none; }
+        .two-col, .stats-card, .form-shell { grid-template-columns: 1fr; }
+        .mini-grid { grid-template-columns: 1fr 1fr; }
+        .steps { grid-template-columns: 1fr; }
       }
-      @media (max-width: 620px) {
-        .shell { width: min(100% - 28px, 1160px); }
-        .hero { padding-top: 30px; }
-        .grid, .two { grid-template-columns: 1fr; }
-        section { padding: 50px 0; }
-        .audit-card, .panel, .feature { border-radius: 18px; }
+      @media (max-width: 640px) {
+        .wrap { width: min(100% - 28px, 1140px); }
+        .hero { padding-top: 40px; }
+        .hero-search { border-radius: 24px; align-items: stretch; padding: 10px; }
+        .hero-search input { padding-left: 8px; }
+        .format-cloud, .hero-search { flex-direction: row; }
+        .mini-grid, .row { grid-template-columns: 1fr; }
+        section { padding: 58px 0; }
+        h1 { font-size: clamp(42px, 14vw, 72px); }
       }
     </style>
   </head>
   <body>
-    <header class="shell nav">
-      <div class="brand"><div class="brand-mark">AI</div><span>Dental Visibility</span></div>
+    <header class="wrap nav">
+      <div class="brand"><div class="logo">AI</div><span>Dental Visibility</span></div>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#audit">What you get</a>
-        <a href="#why">Why it matters</a>
-        <a href="#form">Free audit</a>
+        <a href="#product">Product</a>
+        <a href="#audit">Audit</a>
+        <a href="#signals">Signals</a>
+        <a class="nav-cta" href="#form">Start for free</a>
       </nav>
     </header>
 
     <main>
-      <section class="shell hero">
-        <div>
-          <div class="eyebrow"><span class="pulse"></span>The new dental SEO battleground: AI recommendations</div>
-          <h1>When patients ask ChatGPT for the best dentist near them, <span class="gradient">does your clinic show up?</span></h1>
-          <p class="hero-copy">Get a free AI Visibility Audit showing whether ChatGPT, Perplexity, Gemini and AI-powered search tools can find, understand and recommend your dental clinic — or whether they’re more likely to recommend competitors instead.</p>
-          <div class="actions">
-            <a class="button" href="#form">Check My Clinic’s AI Visibility →</a>
-            <a class="button secondary" href="#audit">See what’s included</a>
+      <section class="wrap hero">
+        <div class="wordmark"><div class="logo">AI</div><span>Dental Visibility</span></div>
+        <h1>Your clinic’s <span>AI visibility</span> starts here</h1>
+        <p class="hero-copy">Drop your dental website URL to see whether AI search tools can understand your clinic, treatments and locations — or whether they are more likely to recommend competitors.</p>
+        <form class="hero-search" onsubmit="event.preventDefault(); document.getElementById('website').value = this.elements.heroUrl.value; document.getElementById('form').scrollIntoView({behavior:'smooth'});">
+          <input name="heroUrl" type="url" placeholder="Drop your clinic URL to start the free audit" aria-label="Clinic website URL" />
+          <button class="send" type="submit" aria-label="Start audit">→</button>
+        </form>
+        <p class="micro">No code changes. No dashboard login. Just a clear AI visibility report for your clinic.</p>
+        <div class="format-cloud" aria-label="Audit signals">
+          <span class="big-chip"><span class="dot coral"></span>16 patient prompts</span>
+          <span class="format-chip"><span class="dot"></span>Schema</span>
+          <span class="format-chip"><span class="dot blue"></span>Reviews</span>
+          <span class="format-chip"><span class="dot coral"></span>Local SEO</span>
+          <span class="format-chip"><span class="dot"></span>llms.txt</span>
+          <span class="format-chip"><span class="dot blue"></span>Competitors</span>
+        </div>
+      </section>
+
+      <section class="wrap two-col" id="product">
+        <div class="visual-card">
+          <div class="steps">
+            <div class="step"><small>01</small><h3>Scan clinic site</h3></div>
+            <div class="step"><small>02</small><h3>Test AI prompts</h3></div>
+            <div class="step"><small>03</small><h3>Send fix plan</h3></div>
           </div>
-          <p class="micro">Free audit. No obligation. Built for dentists, orthodontists and cosmetic dental clinics.</p>
-        </div>
-
-        <aside class="audit-card" aria-label="Example AI audit scorecard">
-          <div class="score-row">
-            <div>
-              <p class="card-title"><strong>Example AI Readiness Snapshot</strong></p>
-              <p class="card-muted">A clinic can have a solid website and still be hard for AI to recommend.</p>
-            </div>
-            <div class="score"><strong>52</strong></div>
+          <div class="files">
+            <div class="file-row"><span>Generated report</span><span>ai-audit.pdf</span></div>
+            <div class="file-row"><span>Prompt matrix</span><span>patients.csv</span></div>
+            <div class="file-row"><span>Schema gaps</span><span>schema.json</span></div>
+            <div class="file-row"><span>AI profile</span><span>llms.txt</span></div>
+            <div class="file-row"><span>Fix plan</span><span>30-days.md</span></div>
           </div>
-          <div class="checks">
-            <div class="check"><strong>Schema clarity</strong><span class="tag warn">Needs cleanup</span></div>
-            <div class="check"><strong>Location entities</strong><span class="tag warn">Incomplete</span></div>
-            <div class="check"><strong>AI-readable profile</strong><span class="tag warn">Missing</span></div>
-            <div class="check"><strong>Crawler access</strong><span class="tag">Open</span></div>
-            <div class="check"><strong>Prompt visibility</strong><span class="tag warn">Untested</span></div>
+        </div>
+        <div class="content-card">
+          <h3>Structured for patient discovery</h3>
+          <h2>Same clinic. Better understood by AI.</h2>
+          <p>Most dental sites are built for human visitors. AI systems parse structure: treatments, locations, reviews, schema, credentials and third-party trust signals. The audit shows what AI can clearly understand — and what it may be missing.</p>
+          <a class="link-arrow" href="#form">Check my clinic →</a>
+        </div>
+      </section>
+
+      <section class="wrap" id="audit">
+        <div class="section-title">
+          <h2>What the free audit covers</h2>
+          <p>Built around the exact signals AI tools need before they can confidently recommend a dental clinic.</p>
+        </div>
+        <div class="mini-grid">
+          <article class="mini-card"><div class="icon">01</div><h3>Patient prompts</h3><p>We map buyer-intent searches like “best dentist near me,” “Invisalign in [city],” and “dental implants near me.”</p></article>
+          <article class="mini-card"><div class="icon">02</div><h3>Competitors</h3><p>We identify whether your clinic or competitors are more likely to be mentioned by AI-powered search tools.</p></article>
+          <article class="mini-card"><div class="icon">03</div><h3>Schema</h3><p>We check Dentist, LocalBusiness, Service, FAQ, Review and location schema for machine-readable clarity.</p></article>
+          <article class="mini-card"><div class="icon">04</div><h3>Locations</h3><p>We review whether every clinic location is easy to understand as its own local entity.</p></article>
+          <article class="mini-card"><div class="icon">05</div><h3>Trust</h3><p>We look for reviews, credentials, dentist bios, citations and proof that help AI systems verify you.</p></article>
+          <article class="mini-card"><div class="icon">06</div><h3>Fix plan</h3><p>You get a practical 30-day action plan: what to fix first, what pages to add, and what signals matter.</p></article>
+        </div>
+      </section>
+
+      <section class="wrap two-col" id="signals">
+        <div class="content-card">
+          <h3>See how AI consumes your clinic</h3>
+          <h2>AI visibility is more than Google rankings.</h2>
+          <p>Traditional SEO asks: “Do you rank?” AI visibility asks: “Can AI confidently recommend you?” That means your website, schema, reviews, location pages, FAQs and external profiles all need to tell the same clear story.</p>
+        </div>
+        <div class="visual-card stats-card">
+          <div class="stat-big"><strong>52</strong><span class="lede">Example AI readiness score from a real dental site audit.</span></div>
+          <div class="bot-list">
+            <div class="bot-row"><strong>Homepage H1</strong><span>missing</span></div>
+            <div class="bot-row"><strong>Dentist schema</strong><span>partial</span></div>
+            <div class="bot-row"><strong>Location pages</strong><span>thin</span></div>
+            <div class="bot-row"><strong>AI profile</strong><span>not found</span></div>
+            <div class="bot-row"><strong>Crawler access</strong><span>open</span></div>
           </div>
-        </aside>
-      </section>
-
-      <section class="shell" id="audit">
-        <div class="section-head">
-          <h2>What your free audit shows</h2>
-          <p>We look at your clinic like an AI search engine would: can it find you, understand you, trust you, and recommend you for patient-intent prompts?</p>
-        </div>
-        <div class="grid">
-          <article class="feature"><div class="num">01</div><h3>AI buyer prompt test</h3><p>We identify patient prompts your clinic should appear for, including dentist, Invisalign, implant, cosmetic and emergency search intent.</p></article>
-          <article class="feature"><div class="num">02</div><h3>Competitor visibility</h3><p>We check whether your clinic or nearby competitors are more likely to be recommended by AI search tools.</p></article>
-          <article class="feature"><div class="num">03</div><h3>Website AI readiness</h3><p>We review whether your site clearly explains who you are, where you operate, what treatments you offer and why patients should trust you.</p></article>
-          <article class="feature"><div class="num">04</div><h3>Schema review</h3><p>We check Dentist, LocalBusiness, Service, FAQ, Review and location schema so AI/search systems can parse your clinic correctly.</p></article>
-          <article class="feature"><div class="num">05</div><h3>Crawler access</h3><p>We check whether your site is accessible to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot and Applebot.</p></article>
-          <article class="feature"><div class="num">06</div><h3>30-day fix plan</h3><p>You get a prioritized action plan showing what to fix first to improve AI visibility and recommendation confidence.</p></article>
         </div>
       </section>
 
-      <section class="shell split" id="why">
-        <div class="panel">
-          <p class="quote">Traditional SEO asks: <span>“Do you rank on Google?”</span><br><br>AI visibility asks: <span>“Can AI confidently recommend your clinic?”</span></p>
+      <section class="wrap two-col">
+        <div class="code-window" aria-label="Example structured data code">
+          <div class="code-top"><span class="light"></span><span class="light y"></span><span class="light g"></span>clinic-ai-profile.json</div>
+          <pre><code>{
+  <span class="token">"@type"</span>: <span class="str">"Dentist"</span>,
+  <span class="token">"name"</span>: <span class="str">"Your Dental Clinic"</span>,
+  <span class="token">"areaServed"</span>: [<span class="str">"Campsie"</span>, <span class="str">"Villawood"</span>],
+  <span class="token">"services"</span>: [
+    <span class="str">"Invisalign"</span>,
+    <span class="str">"Dental implants"</span>,
+    <span class="str">"Cosmetic dentistry"</span>
+  ],
+  <span class="token">"aiRecommendationGoal"</span>: <span class="str">"Be understood, verified, and recommended."</span>
+}</code></pre>
         </div>
-        <div class="panel">
-          <h2>Patients are changing how they search.</h2>
-          <p class="card-muted">People are no longer only typing into Google. They’re asking AI tools questions like:</p>
-          <ul class="list" style="margin-top: 18px;">
-            <li>Who is the best dentist near me?</li>
-            <li>Where can I get Invisalign in my city?</li>
-            <li>Best dental implants clinic near me</li>
-            <li>Recommend a cosmetic dentist with good reviews</li>
-            <li>Which orthodontist should I choose for clear aligners?</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="shell">
-        <div class="section-head">
-          <h2>Built for high-value dental treatments</h2>
-          <p>Especially useful for clinics that want more patients for Invisalign, braces, dental implants, veneers, smile makeovers, cosmetic dentistry and emergency dental care.</p>
-        </div>
-        <div class="panel">
-          <ul class="list">
-            <li>No clear homepage H1 or local treatment positioning</li>
-            <li>Incomplete Dentist / LocalBusiness schema</li>
-            <li>No FAQ schema or AI-readable business profile</li>
-            <li>Missing location-specific treatment pages</li>
-            <li>Weak links to trusted profiles, reviews and credentials</li>
-            <li>Competitors appearing in AI answers instead of you</li>
-          </ul>
+        <div class="content-card">
+          <h3>Non-intrusive by design</h3>
+          <h2>A clear report before any implementation.</h2>
+          <p>The first step is not changing your website. It is finding the gaps: unclear service pages, missing local schema, weak trust signals, poor FAQ coverage, or competitors with stronger AI-readable evidence.</p>
+          <a class="link-arrow" href="#form">Start the free audit →</a>
         </div>
       </section>
 
-      <section class="shell form-wrap" id="form">
-        <div class="panel">
+      <section class="wrap form-section" id="form">
+        <div class="section-title">
           <h2>Check your clinic’s AI visibility</h2>
-          <p class="card-muted">Enter your clinic details below. We’ll review your website, treatment pages, local signals and AI visibility opportunities, then send your audit by email.</p>
+          <p>Enter your details below. We’ll review your website, treatment pages, local signals and AI visibility opportunities, then send your audit by email.</p>
         </div>
-        <div class="panel">
-          <form id="audit-form">
-            <div class="two">
-              <label>First name<input required name="firstName" autocomplete="given-name" /></label>
-              <label>Work email<input required type="email" name="email" autocomplete="email" /></label>
+        <div class="form-shell">
+          <div class="form-panel">
+            <h2 style="font-size:42px;margin-bottom:14px;">Free audit</h2>
+            <p class="lede">For dentists, orthodontists, Invisalign providers, implant clinics and cosmetic dental practices.</p>
+            <div class="format-cloud" style="justify-content:flex-start;margin:28px 0 0;">
+              <span class="format-chip"><span class="dot coral"></span>No obligation</span>
+              <span class="format-chip"><span class="dot"></span>24h report</span>
+              <span class="format-chip"><span class="dot blue"></span>30-day fix plan</span>
             </div>
-            <label>Clinic name<input required name="clinic" /></label>
-            <label>Website URL<input required type="url" name="website" placeholder="https://yourclinic.com" /></label>
-            <div class="two">
-              <label>Clinic city / location<input required name="location" placeholder="Campsie, NSW" /></label>
-              <label>Main treatment focus<select required name="focus"><option value="">Choose one</option><option>General dentistry</option><option>Orthodontics / braces</option><option>Invisalign / clear aligners</option><option>Dental implants</option><option>Cosmetic dentistry</option><option>Emergency dentistry</option><option>Children’s dentistry</option><option>Multi-location dental group</option><option>Other</option></select></label>
-            </div>
-            <div class="two">
-              <label>Number of locations <input name="locations" placeholder="Optional" /></label>
-              <label>Top competitor <input name="competitor" placeholder="Optional" /></label>
-            </div>
-            <button class="button" type="submit">Get My Free AI Visibility Audit →</button>
-            <p class="note">We’ll only use your details to prepare and send your audit. No spam.</p>
-          </form>
+          </div>
+          <div class="form-panel">
+            <form id="audit-form">
+              <div class="row">
+                <label>First name<input required name="firstName" autocomplete="given-name" /></label>
+                <label>Work email<input required type="email" name="email" autocomplete="email" /></label>
+              </div>
+              <label>Clinic name<input required name="clinic" /></label>
+              <label>Website URL<input id="website" required type="url" name="website" placeholder="https://yourclinic.com" /></label>
+              <div class="row">
+                <label>Clinic city / location<input required name="location" placeholder="Campsie, NSW" /></label>
+                <label>Main treatment focus<select required name="focus"><option value="">Choose one</option><option>General dentistry</option><option>Orthodontics / braces</option><option>Invisalign / clear aligners</option><option>Dental implants</option><option>Cosmetic dentistry</option><option>Emergency dentistry</option><option>Children’s dentistry</option><option>Multi-location dental group</option><option>Other</option></select></label>
+              </div>
+              <div class="row">
+                <label>Number of locations<input name="locations" placeholder="Optional" /></label>
+                <label>Top competitor<input name="competitor" placeholder="Optional" /></label>
+              </div>
+              <button class="button" type="submit">Get My Free AI Visibility Audit →</button>
+              <p class="note">We’ll only use your details to prepare and send your audit. No spam.</p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="shell">Dental AI Visibility Audit · Become the dental clinic AI can confidently recommend.</div>
+      <div class="wrap footer-inner">
+        <span>Dental AI Visibility Audit · Become the dental clinic AI can confidently recommend.</span>
+        <span><a href="#form">Start free audit</a></span>
+      </div>
     </footer>
 
     <script>
       document.getElementById('audit-form').addEventListener('submit', function (event) {
         event.preventDefault();
         const button = event.currentTarget.querySelector('button');
+        if (button.disabled) return;
         button.textContent = 'Request received — audit on the way';
         button.disabled = true;
         event.currentTarget.insertAdjacentHTML('beforeend', '<p class="note" role="status">Thanks — this preview captured the request locally. The live lead database is the next build step.</p>');
