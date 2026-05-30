@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dental AI Visibility Audit</title>
+    <meta
+      name="description"
+      content="Get a free AI Visibility Audit showing whether ChatGPT, Perplexity, Gemini and AI-powered search tools can find, understand and recommend your dental clinic."
+    />
+    <meta property="og:title" content="Dental AI Visibility Audit" />
+    <meta
+      property="og:description"
+      content="When patients ask ChatGPT for the best dentist near them, does your clinic show up?"
+    />
+    <meta property="og:type" content="website" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #071014;
+        --bg-2: #0c1b21;
+        --card: rgba(255, 255, 255, 0.07);
+        --card-strong: rgba(255, 255, 255, 0.11);
+        --text: #f3fbff;
+        --muted: #a9bdc7;
+        --line: rgba(255, 255, 255, 0.14);
+        --cyan: #6ee7f9;
+        --blue: #7aa7ff;
+        --green: #98f5cf;
+        --yellow: #ffe099;
+        --shadow: 0 30px 100px rgba(0, 0, 0, 0.42);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(110, 231, 249, 0.18), transparent 32rem),
+          radial-gradient(circle at top right, rgba(122, 167, 255, 0.22), transparent 30rem),
+          linear-gradient(180deg, var(--bg), #05090c 70%);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      a { color: inherit; }
+      .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 26px 0;
+      }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.03em; }
+      .brand-mark {
+        width: 38px; height: 38px; border-radius: 12px;
+        background: linear-gradient(135deg, var(--cyan), var(--blue));
+        box-shadow: 0 0 40px rgba(110, 231, 249, 0.32);
+        display: grid; place-items: center; color: #031014; font-weight: 950;
+      }
+      .nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 20px; }
+      .nav a:hover { color: var(--text); }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 46px;
+        align-items: center;
+        padding: 54px 0 74px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.05);
+        color: var(--green);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-weight: 700;
+        font-size: 13px;
+        margin-bottom: 22px;
+      }
+      .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 6px rgba(152,245,207,.12); }
+      h1 {
+        font-size: clamp(42px, 6.3vw, 82px);
+        line-height: 0.94;
+        letter-spacing: -0.075em;
+        margin: 0 0 24px;
+      }
+      .gradient { background: linear-gradient(90deg, #fff, var(--cyan), var(--blue)); -webkit-background-clip: text; color: transparent; }
+      .hero-copy { color: var(--muted); font-size: 19px; max-width: 680px; margin: 0 0 30px; }
+      .actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 0;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 15px 21px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--cyan), var(--blue));
+        color: #041014;
+        font-weight: 900;
+        box-shadow: 0 18px 60px rgba(110, 231, 249, .24);
+      }
+      .button.secondary { background: rgba(255,255,255,.07); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
+      .micro { color: var(--muted); font-size: 13px; }
+
+      .audit-card {
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.055));
+        border-radius: 28px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+      .audit-card:before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background: radial-gradient(circle at top right, rgba(110,231,249,.22), transparent 16rem);
+        pointer-events: none;
+      }
+      .score-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; position: relative; }
+      .score {
+        width: 116px; height: 116px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: conic-gradient(var(--yellow) 0 52%, rgba(255,255,255,.12) 52% 100%);
+        position: relative;
+      }
+      .score:after { content: ""; position: absolute; inset: 10px; border-radius: 50%; background: #0a171c; }
+      .score strong { position: relative; z-index: 1; font-size: 28px; letter-spacing: -0.06em; }
+      .card-title { margin: 0; font-size: 23px; letter-spacing: -0.04em; }
+      .card-muted { color: var(--muted); margin: 6px 0 0; }
+      .checks { display: grid; gap: 10px; margin-top: 24px; position: relative; }
+      .check { display: flex; justify-content: space-between; gap: 12px; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 12px 13px; color: var(--muted); font-size: 14px; }
+      .check strong { color: var(--text); }
+      .tag { color: var(--green); font-weight: 800; }
+      .tag.warn { color: var(--yellow); }
+
+      section { padding: 74px 0; }
+      .section-head { max-width: 760px; margin-bottom: 32px; }
+      h2 { font-size: clamp(32px, 4.5vw, 56px); line-height: 1; letter-spacing: -0.06em; margin: 0 0 16px; }
+      .section-head p { color: var(--muted); font-size: 18px; margin: 0; }
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .feature {
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 22px;
+        padding: 22px;
+        min-height: 190px;
+      }
+      .feature .num { color: var(--cyan); font-weight: 950; font-size: 13px; margin-bottom: 22px; }
+      .feature h3 { margin: 0 0 10px; font-size: 19px; letter-spacing: -0.03em; }
+      .feature p { color: var(--muted); margin: 0; }
+
+      .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: start; }
+      .panel { border: 1px solid var(--line); background: var(--card); border-radius: 26px; padding: 26px; }
+      .list { margin: 0; padding: 0; list-style: none; display: grid; gap: 13px; }
+      .list li { display: flex; gap: 11px; color: var(--muted); }
+      .list li:before { content: "✓"; color: var(--green); font-weight: 900; }
+      .quote { font-size: 29px; letter-spacing: -0.045em; line-height: 1.08; margin: 0; }
+      .quote span { color: var(--cyan); }
+
+      .form-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: stretch; }
+      form { display: grid; gap: 14px; }
+      label { display: grid; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 750; }
+      input, select {
+        width: 100%;
+        border: 1px solid rgba(255,255,255,.16);
+        background: rgba(2, 10, 13, .68);
+        color: var(--text);
+        border-radius: 13px;
+        padding: 14px 13px;
+        font: inherit;
+        outline: none;
+      }
+      input:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 4px rgba(110,231,249,.11); }
+      .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .note { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+      footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: 14px; }
+
+      @media (max-width: 900px) {
+        .hero, .split, .form-wrap { grid-template-columns: 1fr; }
+        .grid { grid-template-columns: 1fr 1fr; }
+        .nav-links { display: none; }
+      }
+      @media (max-width: 620px) {
+        .shell { width: min(100% - 28px, 1160px); }
+        .hero { padding-top: 30px; }
+        .grid, .two { grid-template-columns: 1fr; }
+        section { padding: 50px 0; }
+        .audit-card, .panel, .feature { border-radius: 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell nav">
+      <div class="brand"><div class="brand-mark">AI</div><span>Dental Visibility</span></div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#audit">What you get</a>
+        <a href="#why">Why it matters</a>
+        <a href="#form">Free audit</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="shell hero">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span>The new dental SEO battleground: AI recommendations</div>
+          <h1>When patients ask ChatGPT for the best dentist near them, <span class="gradient">does your clinic show up?</span></h1>
+          <p class="hero-copy">Get a free AI Visibility Audit showing whether ChatGPT, Perplexity, Gemini and AI-powered search tools can find, understand and recommend your dental clinic — or whether they’re more likely to recommend competitors instead.</p>
+          <div class="actions">
+            <a class="button" href="#form">Check My Clinic’s AI Visibility →</a>
+            <a class="button secondary" href="#audit">See what’s included</a>
+          </div>
+          <p class="micro">Free audit. No obligation. Built for dentists, orthodontists and cosmetic dental clinics.</p>
+        </div>
+
+        <aside class="audit-card" aria-label="Example AI audit scorecard">
+          <div class="score-row">
+            <div>
+              <p class="card-title"><strong>Example AI Readiness Snapshot</strong></p>
+              <p class="card-muted">A clinic can have a solid website and still be hard for AI to recommend.</p>
+            </div>
+            <div class="score"><strong>52</strong></div>
+          </div>
+          <div class="checks">
+            <div class="check"><strong>Schema clarity</strong><span class="tag warn">Needs cleanup</span></div>
+            <div class="check"><strong>Location entities</strong><span class="tag warn">Incomplete</span></div>
+            <div class="check"><strong>AI-readable profile</strong><span class="tag warn">Missing</span></div>
+            <div class="check"><strong>Crawler access</strong><span class="tag">Open</span></div>
+            <div class="check"><strong>Prompt visibility</strong><span class="tag warn">Untested</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="shell" id="audit">
+        <div class="section-head">
+          <h2>What your free audit shows</h2>
+          <p>We look at your clinic like an AI search engine would: can it find you, understand you, trust you, and recommend you for patient-intent prompts?</p>
+        </div>
+        <div class="grid">
+          <article class="feature"><div class="num">01</div><h3>AI buyer prompt test</h3><p>We identify patient prompts your clinic should appear for, including dentist, Invisalign, implant, cosmetic and emergency search intent.</p></article>
+          <article class="feature"><div class="num">02</div><h3>Competitor visibility</h3><p>We check whether your clinic or nearby competitors are more likely to be recommended by AI search tools.</p></article>
+          <article class="feature"><div class="num">03</div><h3>Website AI readiness</h3><p>We review whether your site clearly explains who you are, where you operate, what treatments you offer and why patients should trust you.</p></article>
+          <article class="feature"><div class="num">04</div><h3>Schema review</h3><p>We check Dentist, LocalBusiness, Service, FAQ, Review and location schema so AI/search systems can parse your clinic correctly.</p></article>
+          <article class="feature"><div class="num">05</div><h3>Crawler access</h3><p>We check whether your site is accessible to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot and Applebot.</p></article>
+          <article class="feature"><div class="num">06</div><h3>30-day fix plan</h3><p>You get a prioritized action plan showing what to fix first to improve AI visibility and recommendation confidence.</p></article>
+        </div>
+      </section>
+
+      <section class="shell split" id="why">
+        <div class="panel">
+          <p class="quote">Traditional SEO asks: <span>“Do you rank on Google?”</span><br><br>AI visibility asks: <span>“Can AI confidently recommend your clinic?”</span></p>
+        </div>
+        <div class="panel">
+          <h2>Patients are changing how they search.</h2>
+          <p class="card-muted">People are no longer only typing into Google. They’re asking AI tools questions like:</p>
+          <ul class="list" style="margin-top: 18px;">
+            <li>Who is the best dentist near me?</li>
+            <li>Where can I get Invisalign in my city?</li>
+            <li>Best dental implants clinic near me</li>
+            <li>Recommend a cosmetic dentist with good reviews</li>
+            <li>Which orthodontist should I choose for clear aligners?</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="shell">
+        <div class="section-head">
+          <h2>Built for high-value dental treatments</h2>
+          <p>Especially useful for clinics that want more patients for Invisalign, braces, dental implants, veneers, smile makeovers, cosmetic dentistry and emergency dental care.</p>
+        </div>
+        <div class="panel">
+          <ul class="list">
+            <li>No clear homepage H1 or local treatment positioning</li>
+            <li>Incomplete Dentist / LocalBusiness schema</li>
+            <li>No FAQ schema or AI-readable business profile</li>
+            <li>Missing location-specific treatment pages</li>
+            <li>Weak links to trusted profiles, reviews and credentials</li>
+            <li>Competitors appearing in AI answers instead of you</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="shell form-wrap" id="form">
+        <div class="panel">
+          <h2>Check your clinic’s AI visibility</h2>
+          <p class="card-muted">Enter your clinic details below. We’ll review your website, treatment pages, local signals and AI visibility opportunities, then send your audit by email.</p>
+        </div>
+        <div class="panel">
+          <form id="audit-form">
+            <div class="two">
+              <label>First name<input required name="firstName" autocomplete="given-name" /></label>
+              <label>Work email<input required type="email" name="email" autocomplete="email" /></label>
+            </div>
+            <label>Clinic name<input required name="clinic" /></label>
+            <label>Website URL<input required type="url" name="website" placeholder="https://yourclinic.com" /></label>
+            <div class="two">
+              <label>Clinic city / location<input required name="location" placeholder="Campsie, NSW" /></label>
+              <label>Main treatment focus<select required name="focus"><option value="">Choose one</option><option>General dentistry</option><option>Orthodontics / braces</option><option>Invisalign / clear aligners</option><option>Dental implants</option><option>Cosmetic dentistry</option><option>Emergency dentistry</option><option>Children’s dentistry</option><option>Multi-location dental group</option><option>Other</option></select></label>
+            </div>
+            <div class="two">
+              <label>Number of locations <input name="locations" placeholder="Optional" /></label>
+              <label>Top competitor <input name="competitor" placeholder="Optional" /></label>
+            </div>
+            <button class="button" type="submit">Get My Free AI Visibility Audit →</button>
+            <p class="note">We’ll only use your details to prepare and send your audit. No spam.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">Dental AI Visibility Audit · Become the dental clinic AI can confidently recommend.</div>
+    </footer>
+
+    <script>
+      document.getElementById('audit-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const button = event.currentTarget.querySelector('button');
+        button.textContent = 'Request received — audit on the way';
+        button.disabled = true;
+        event.currentTarget.insertAdjacentHTML('beforeend', '<p class="note" role="status">Thanks — this preview captured the request locally. The live lead database is the next build step.</p>');
+      });
+    </script>
+  </body>
+</html>
