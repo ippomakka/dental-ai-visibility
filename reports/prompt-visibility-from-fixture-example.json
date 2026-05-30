@@ -1,0 +1,34 @@
+[
+  {
+    "prompt": "Best dentist in Campsie",
+    "target_appeared": true,
+    "target_position": 2,
+    "competitors": [
+      {
+        "name": "Example Dental Clinic Campsie",
+        "domain": "example.com",
+        "url": "https://example.com/campsie-dentist"
+      }
+    ],
+    "sources": [
+      "example.com \u2014 Example Dental Clinic Campsie",
+      "tcaredental.com.au \u2014 TCare Dental Centre"
+    ],
+    "notes": [
+      "Target clinic appeared in the top 3 retrieved results for this prompt.",
+      "Competitor/source domains appeared before or alongside the target clinic."
+    ],
+    "raw_results": [
+      {
+        "title": "Example Dental Clinic Campsie",
+        "url": "https://example.com/campsie-dentist",
+        "snippet": "Example fixture row. Replace with a real AI/search result capture."
+      },
+      {
+        "title": "TCare Dental Centre",
+        "url": "https://tcaredental.com.au/",
+        "snippet": "Example fixture row showing the target clinic appearing. Replace with a real capture."
+      }
+    ]
+  }
+]
