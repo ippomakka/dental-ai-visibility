@@ -400,20 +400,9 @@
         </div>
         <div class="form-shell">
           <form id="audit-form">
-            <div class="row">
-              <label>First name<input required name="firstName" autocomplete="given-name" /></label>
-              <label>Work email<input required type="email" name="email" autocomplete="email" /></label>
-            </div>
-            <label>Clinic name<input required name="clinic" /></label>
+            <label>Name<input required name="name" autocomplete="name" placeholder="Your name" /></label>
+            <label>Email<input required type="email" name="email" autocomplete="email" placeholder="you@clinic.com" /></label>
             <label>Website URL<input id="website" required type="url" name="website" placeholder="https://yourclinic.com" /></label>
-            <div class="row">
-              <label>Clinic city / location<input required name="location" placeholder="Campsie, NSW" /></label>
-              <label>Main treatment focus<select required name="focus"><option value="">Choose one</option><option>General dentistry</option><option>Orthodontics / braces</option><option>Invisalign / clear aligners</option><option>Dental implants</option><option>Cosmetic dentistry</option><option>Emergency dentistry</option><option>Children’s dentistry</option><option>Multi-location dental group</option><option>Other</option></select></label>
-            </div>
-            <div class="row">
-              <label>Number of locations<input name="locations" placeholder="Optional" /></label>
-              <label>Top competitor<input name="competitor" placeholder="Optional" /></label>
-            </div>
             <button class="button" type="submit">Get my free audit →</button>
             <p class="note">No spam. We’ll only use your details to prepare and send your audit.</p>
           </form>
